@@ -1,2 +1,2 @@
 /* https://create-react-app.dev/docs/adding-css-reset/ */
-@import-normalize;
+@import 'sanitize.css';
