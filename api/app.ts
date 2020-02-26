@@ -7,6 +7,9 @@ import * as logger from 'morgan'
 import expensesRouter from './routes/expenses'
 
 const app = express()
+const IS_DEV = app.get('env').startsWith('dev')
+const PORT = process.env.PORT || 3000
+const INTERNAL_ERROR = 500
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "*")
@@ -31,10 +34,10 @@ app.use(function(req, res, next) {
 
 app.use(function(err, req, res, next) {
   const message = err.message
-  const error = req.app.get('env') === 'development' ? err : {}
-  const status = err.status || 500
+  const error = IS_DEV ? err : {}
+  const status = err.status || INTERNAL_ERROR
 
-  res.status(status || 500)
+  res.status(status || INTERNAL_ERROR)
   res.send({
     status,
     message,
@@ -42,5 +45,6 @@ app.use(function(err, req, res, next) {
   })
 })
 
-app.listen(3000)
-console.log('API running at http://localhost:3000')
+app.listen(PORT, function () {
+  console.log(`API running at http://localhost:${PORT}`)
+})
