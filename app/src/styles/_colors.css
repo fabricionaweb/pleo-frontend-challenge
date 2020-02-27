@@ -1,2 +1,5 @@
-@value primary: #BF4040;
-@value secondary: #1F4F7F;
+@value bg-color: rgb(249, 251, 252);
+
+@value header-gradient-from: rgb(0, 120, 237);
+@value header-gradient-to: rgb(0, 212, 237);
+@value header-text-color: white;

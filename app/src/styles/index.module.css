@@ -1,0 +1,12 @@
+/* https://create-react-app.dev/docs/adding-css-reset/ */
+@import 'sanitize.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  @value bg-color from "./_colors.css";
+
+  background: bg-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
