@@ -1,0 +1,31 @@
+@value colors: "../../styles/_colors.css";
+@value grids: "../../styles/_grids.css";
+@value typography: "../../styles/_typography.css";
+
+.header {
+  @value header-gradient-from, header-gradient-to from colors;
+
+  background: header-gradient-from;
+  background: linear-gradient(
+    225deg,
+    header-gradient-from 0%,
+    header-gradient-to 100%
+  );
+  min-height: 15rem;
+}
+
+.container {
+  composes: container from grids;
+}
+
+.title {
+  @value header-text-color from colors;
+  @value font-face-primary from typography;
+
+  color: header-text-color;
+  font-family: font-face-primary;
+  font-weight: 300;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+}

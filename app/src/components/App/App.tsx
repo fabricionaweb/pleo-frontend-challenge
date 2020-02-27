@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './App.module.css'
+import React, { FC } from 'react'
+import Header from '../Header/Header'
 
-function App() {
-  return <div className={styles.App} />
+const App: FC = () => {
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
 
 export default App
