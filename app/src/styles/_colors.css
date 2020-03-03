@@ -2,4 +2,9 @@
 
 @value header-gradient-from: rgb(0, 120, 237);
 @value header-gradient-to: rgb(0, 212, 237);
-@value header-text-color: white;
+
+@value color-primary: #333;
+@value color-primary-light: #666;
+@value color-secondary: #fff;
+@value color-tag: #ffbf16;
+@value color-amount: #3f5ff4;

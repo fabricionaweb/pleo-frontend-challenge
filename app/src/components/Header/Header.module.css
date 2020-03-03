@@ -1,31 +1,69 @@
 @value colors: "../../styles/_colors.css";
-@value grids: "../../styles/_grids.css";
 @value typography: "../../styles/_typography.css";
+
+@value color-secondary, color-primary from colors;
 
 .header {
   @value header-gradient-from, header-gradient-to from colors;
 
+  display: flex;
+  flex-flow: column;
   background: header-gradient-from;
   background: linear-gradient(
     225deg,
     header-gradient-from 0%,
     header-gradient-to 100%
   );
-  min-height: 15rem;
-}
-
-.container {
-  composes: container from grids;
 }
 
 .title {
-  @value header-text-color from colors;
-  @value font-face-primary from typography;
+  @value font-face-secondary from typography;
 
-  color: header-text-color;
-  font-family: font-face-primary;
-  font-weight: 300;
-  margin: 0;
-  padding: 0.5rem 0;
+  color: color-secondary;
+  font-weight: 400;
   text-align: center;
+  margin: 1rem auto;
+  padding: 0;
+}
+
+.card {
+  @value color-primary-light from colors;
+
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: flex-start;
+  background-color: color-secondary;
+  color: color-primary-light;
+  border-radius: 1.5rem;
+  box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.15);
+  max-width: 30rem;
+  width: 90%;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+}
+
+.currency {
+  @value color-tag from colors;
+
+  color: color-secondary;
+  background-color: color-tag;
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+}
+
+.amount {
+  @value color-amount from colors;
+
+  color: color-amount;
+  margin: 0;
+  padding: 0;
+  font-size: 3.85rem;
+}
+
+.amount sup {
+  font-size: 0.45em;
+  margin-right: 0.25em;
+  display: inline-block;
 }
