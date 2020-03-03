@@ -2,7 +2,6 @@ import * as express from 'express'
 
 import { expenses } from '../data/expenses'
 import { UploadedFile } from 'express-fileupload';
-import { dirname } from 'path';
 
 const router = express.Router()
 
@@ -32,6 +31,18 @@ router.get('/', (req, res) => {
         }
       }),
     total: expenses.length
+  })
+})
+
+router.get('/total', (req, res) => {
+  res.send({
+    total: expenses.
+      map((expense) => expense.amount)
+      .reduce((prev, { currency, value }) => {
+        const total = Number(value) + (prev[currency] || 0)
+        prev[currency] = total
+        return prev;
+      }, {})
   })
 })
 
